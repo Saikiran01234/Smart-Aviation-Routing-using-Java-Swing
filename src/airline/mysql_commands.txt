@@ -1,0 +1,264 @@
+This file contains information on creating a database for the Airline Management System project. 
+It's assumed that this process is performed at the command line.
+
+Tasks:
+
+1. Create Database
+SQL Command: 
+create database ams;
+
+2. Switch to the ams database
+SQL Command:
+use ams;
+
+3. Create cancellation table
+SQL Command:
+create table cancellation (
+    pnr_no varchar(255),
+    cancellaton_no varchar(255),
+    cancellation_data varchar(255),
+    fli_code varchar(255)
+);
+
+4. Create flight table
+SQL Command:
+create table flight (
+    f_code varchar(255),
+    f_name varchar(255),
+    src varchar(255),
+    dst varchar(255)
+);
+
+5. Create login table
+SQL Command:
+create table login (
+    username varchar(255),
+    password varchar(255)
+);
+
+6. Create passenger table
+SQL Command:
+create table passenger (
+    pnr_no varchar(255),
+    address varchar(255),
+    nationality varchar(255),
+    name varchar(255),
+    gender varchar(255),
+    ph_no varchar(255),
+    passport_no varchar(255),
+    fl_code varchar(255)
+);
+
+7. Create payment table
+SQL Command:
+create table payment (
+    pnr_no varchar(255),
+    ph_no varchar(255),
+    cheque_no varchar(255),
+    card_no varchar(255),
+    paid_amt varchar(255),
+    pay_date varchar(255)
+);
+
+8. Create reservation table
+SQL Command:
+create table reservation (
+    pnr_no varchar(255),
+    ticket_id varchar(255),
+    f_code varchar(255),
+    jny_date varchar(255),
+    jny_time varchar(255),
+    src varchar(255),
+    dst varchar(255)
+);
+
+9. Create sector table
+SQL Command:
+create table sector (
+    flight_code varchar(255),
+    capacity varchar(255),
+    class_code varchar(255),
+    class_name varchar(255)
+);
+
+10. Insert values into login table 
+insert into login
+values ('admin', '12345');
+
+
+
+
+--data for flight table
+INSERT INTO flight (f_code, f_name, src, dst) VALUES
+('AI101', 'Air India', 'DELHI', 'MUMBAI'),
+('AI102', 'Air India', 'MUMBAI', 'DELHI'),
+('AI201', 'Air India', 'BANGALORE', 'CHENNAI'),
+('AI202', 'Air India', 'CHENNAI', 'BANGALORE'),
+('AI301', 'Air India', 'HYDERABAD', 'PATNA'),
+('AI302', 'Air India', 'PATNA', 'HYDERABAD'),
+('AI401', 'Air India', 'DELHI', 'BANGALORE'),
+('AI402', 'Air India', 'BANGALORE', 'DELHI'),
+('AI501', 'Air India', 'MUMBAI', 'CHENNAI'),
+('AI502', 'Air India', 'CHENNAI', 'MUMBAI'),
+('AI601', 'Air India', 'HYDERABAD', 'DELHI'),
+('AI602', 'Air India', 'DELHI', 'HYDERABAD'),
+('AI701', 'Air India', 'PATNA', 'MUMBAI'),
+('AI702', 'Air India', 'MUMBAI', 'PATNA'),
+('AI801', 'Air India', 'BANGALORE', 'HYDERABAD'),
+('AI802', 'Air India', 'HYDERABAD', 'BANGALORE'),
+('AI901', 'Air India', 'CHENNAI', 'PATNA'),
+('AI902', 'Air India', 'PATNA', 'CHENNAI'),
+('AI1001', 'Air India', 'DELHI', 'PATNA'),
+('AI1002', 'Air India', 'PATNA', 'DELHI');
+
+--data for sector table
+INSERT INTO sector (flight_code, capacity, class_code, class_name) VALUES
+('AI101', '180', 'E', 'Economy'),
+('AI101', '30', 'B', 'Business'),
+('AI101', '10', 'F', 'First'),
+('AI102', '180', 'E', 'Economy'),
+('AI102', '30', 'B', 'Business'),
+('AI102', '10', 'F', 'First'),
+('AI201', '150', 'E', 'Economy'),
+('AI201', '25', 'B', 'Business'),
+('AI201', '8', 'F', 'First'),
+('AI202', '150', 'E', 'Economy'),
+('AI202', '25', 'B', 'Business'),
+('AI202', '8', 'F', 'First'),
+('AI301', '120', 'E', 'Economy'),
+('AI301', '20', 'B', 'Business'),
+('AI301', '6', 'F', 'First'),
+('AI302', '120', 'E', 'Economy'),
+('AI302', '20', 'B', 'Business'),
+('AI302', '6', 'F', 'First'),
+('AI401', '180', 'E', 'Economy'),
+('AI401', '30', 'B', 'Business'),
+('AI401', '10', 'F', 'First'),
+('AI402', '180', 'E', 'Economy'),
+('AI402', '30', 'B', 'Business'),
+('AI402', '10', 'F', 'First');
+
+--data for passenger table
+INSERT INTO passenger (pnr_no, address, nationality, name, gender, ph_no, passport_no, fl_code) VALUES
+('PNR001', '123 MG Road, Delhi', 'Indian', 'Rahul Sharma', 'male', '9876543210', 'P1234567', 'AI101'),
+('PNR002', '456 Church Street, Mumbai', 'Indian', 'Priya Patel', 'female', '8765432109', 'P2345678', 'AI102'),
+('PNR003', '789 Brigade Road, Bangalore', 'Indian', 'Amit Kumar', 'male', '7654321098', 'P3456789', 'AI201'),
+('PNR004', '321 Park Street, Chennai', 'Indian', 'Neha Gupta', 'female', '6543210987', 'P4567890', 'AI202'),
+('PNR005', '654 Mall Road, Hyderabad', 'Indian', 'Vikram Singh', 'male', '5432109876', 'P5678901', 'AI301'),
+('PNR006', '987 Gandhi Road, Patna', 'Indian', 'Anjali Verma', 'female', '4321098765', 'P6789012', 'AI302'),
+('PNR007', '147 Nehru Street, Delhi', 'Indian', 'Rajesh Kumar', 'male', '3210987654', 'P7890123', 'AI401'),
+('PNR008', '258 Victoria Road, Mumbai', 'Indian', 'Sneha Reddy', 'female', '2109876543', 'P8901234', 'AI402'),
+('PNR009', '369 MG Road, Bangalore', 'Indian', 'Arun Mehta', 'male', '1098765432', 'P9012345', 'AI501'),
+('PNR010', '741 Brigade Road, Chennai', 'Indian', 'Divya Sharma', 'female', '9876543211', 'P0123456', 'AI502'),
+('PNR011', '852 Church Street, Hyderabad', 'Indian', 'Karan Malhotra', 'male', '8765432110', 'P1234568', 'AI601'),
+('PNR012', '963 Park Street, Patna', 'Indian', 'Pooja Singh', 'female', '7654321099', 'P2345679', 'AI602'),
+('PNR013', '159 Mall Road, Delhi', 'Indian', 'Rohit Verma', 'male', '6543210988', 'P3456780', 'AI701'),
+('PNR014', '357 Gandhi Road, Mumbai', 'Indian', 'Meera Patel', 'female', '5432109877', 'P4567891', 'AI702'),
+('PNR015', '456 Nehru Street, Bangalore', 'Indian', 'Vivek Kumar', 'male', '4321098766', 'P5678902', 'AI801'),
+('PNR016', '654 Victoria Road, Chennai', 'Indian', 'Shreya Gupta', 'female', '3210987655', 'P6789013', 'AI802'),
+('PNR017', '852 MG Road, Hyderabad', 'Indian', 'Amit Singh', 'male', '2109876544', 'P7890124', 'AI901'),
+('PNR018', '963 Brigade Road, Patna', 'Indian', 'Anita Sharma', 'female', '1098765433', 'P8901235', 'AI902'),
+('PNR019', '147 Church Street, Delhi', 'Indian', 'Ravi Kumar', 'male', '9876543212', 'P9012346', 'AI1001'),
+('PNR020', '258 Park Street, Mumbai', 'Indian', 'Sonia Reddy', 'female', '8765432111', 'P0123457', 'AI1002');
+
+--data for reservation table
+INSERT INTO reservation (pnr_no, ticket_id, f_code, jny_date, jny_time, src, dst) VALUES
+('PNR001', 'TKT001', 'AI101', '2024-03-15', '08:00:00', 'DELHI', 'MUMBAI'),
+('PNR002', 'TKT002', 'AI102', '2024-03-15', '10:00:00', 'MUMBAI', 'DELHI'),
+('PNR003', 'TKT003', 'AI201', '2024-03-16', '09:00:00', 'BANGALORE', 'CHENNAI'),
+('PNR004', 'TKT004', 'AI202', '2024-03-16', '11:00:00', 'CHENNAI', 'BANGALORE'),
+('PNR005', 'TKT005', 'AI301', '2024-03-17', '07:00:00', 'HYDERABAD', 'PATNA'),
+('PNR006', 'TKT006', 'AI302', '2024-03-17', '13:00:00', 'PATNA', 'HYDERABAD'),
+('PNR007', 'TKT007', 'AI401', '2024-03-18', '14:00:00', 'DELHI', 'BANGALORE'),
+('PNR008', 'TKT008', 'AI402', '2024-03-18', '16:00:00', 'BANGALORE', 'DELHI'),
+('PNR009', 'TKT009', 'AI501', '2024-03-19', '12:00:00', 'MUMBAI', 'CHENNAI'),
+('PNR010', 'TKT010', 'AI502', '2024-03-19', '15:00:00', 'CHENNAI', 'MUMBAI'),
+('PNR011', 'TKT011', 'AI601', '2024-03-20', '06:00:00', 'HYDERABAD', 'DELHI'),
+('PNR012', 'TKT012', 'AI602', '2024-03-20', '17:00:00', 'DELHI', 'HYDERABAD'),
+('PNR013', 'TKT013', 'AI701', '2024-03-21', '08:00:00', 'PATNA', 'MUMBAI'),
+('PNR014', 'TKT014', 'AI702', '2024-03-21', '10:00:00', 'MUMBAI', 'PATNA'),
+('PNR015', 'TKT015', 'AI801', '2024-03-22', '11:00:00', 'BANGALORE', 'HYDERABAD'),
+('PNR016', 'TKT016', 'AI802', '2024-03-22', '13:00:00', 'HYDERABAD', 'BANGALORE'),
+('PNR017', 'TKT017', 'AI901', '2024-03-23', '14:00:00', 'CHENNAI', 'PATNA'),
+('PNR018', 'TKT018', 'AI902', '2024-03-23', '16:00:00', 'PATNA', 'CHENNAI'),
+('PNR019', 'TKT019', 'AI1001', '2024-03-24', '09:00:00', 'DELHI', 'PATNA'),
+('PNR020', 'TKT020', 'AI1002', '2024-03-24', '12:00:00', 'PATNA', 'DELHI');
+
+-- Additional data for reservation table: all src-dst combinations with random dates and times
+INSERT INTO reservation (pnr_no, ticket_id, f_code, jny_date, jny_time, src, dst) VALUES
+('PNR021', 'TKT021', 'AI101', '2024-04-01', '08:00:00', 'DELHI', 'MUMBAI'),
+('PNR022', 'TKT022', 'AI102', '2024-04-02', '09:30:00', 'MUMBAI', 'DELHI'),
+('PNR023', 'TKT023', 'AI201', '2024-04-03', '10:15:00', 'BANGALORE', 'CHENNAI'),
+('PNR024', 'TKT024', 'AI202', '2024-04-04', '11:45:00', 'CHENNAI', 'BANGALORE'),
+('PNR025', 'TKT025', 'AI301', '2024-04-05', '07:20:00', 'HYDERABAD', 'PATNA'),
+('PNR026', 'TKT026', 'AI302', '2024-04-06', '13:10:00', 'PATNA', 'HYDERABAD'),
+('PNR027', 'TKT027', 'AI401', '2024-04-07', '14:30:00', 'DELHI', 'BANGALORE'),
+('PNR028', 'TKT028', 'AI402', '2024-04-08', '16:00:00', 'BANGALORE', 'DELHI'),
+('PNR029', 'TKT029', 'AI501', '2024-04-09', '12:00:00', 'MUMBAI', 'CHENNAI'),
+('PNR030', 'TKT030', 'AI502', '2024-04-10', '15:00:00', 'CHENNAI', 'MUMBAI'),
+('PNR031', 'TKT031', 'AI601', '2024-04-11', '06:30:00', 'HYDERABAD', 'DELHI'),
+('PNR032', 'TKT032', 'AI602', '2024-04-12', '17:20:00', 'DELHI', 'HYDERABAD'),
+('PNR033', 'TKT033', 'AI701', '2024-04-13', '08:40:00', 'PATNA', 'MUMBAI'),
+('PNR034', 'TKT034', 'AI702', '2024-04-14', '10:50:00', 'MUMBAI', 'PATNA'),
+('PNR035', 'TKT035', 'AI801', '2024-04-15', '11:10:00', 'BANGALORE', 'HYDERABAD'),
+('PNR036', 'TKT036', 'AI802', '2024-04-16', '13:30:00', 'HYDERABAD', 'BANGALORE'),
+('PNR037', 'TKT037', 'AI901', '2024-04-17', '14:50:00', 'CHENNAI', 'PATNA'),
+('PNR038', 'TKT038', 'AI902', '2024-04-18', '16:10:00', 'PATNA', 'CHENNAI'),
+('PNR039', 'TKT039', 'AI1001', '2024-04-19', '09:00:00', 'DELHI', 'PATNA'),
+('PNR040', 'TKT040', 'AI1002', '2024-04-20', '12:30:00', 'PATNA', 'DELHI'),
+('PNR041', 'TKT041', 'AI101', '2024-04-21', '08:20:00', 'DELHI', 'CHENNAI'),
+('PNR042', 'TKT042', 'AI201', '2024-04-22', '10:00:00', 'BANGALORE', 'DELHI'),
+('PNR043', 'TKT043', 'AI301', '2024-04-23', '11:30:00', 'HYDERABAD', 'MUMBAI'),
+('PNR044', 'TKT044', 'AI401', '2024-04-24', '13:00:00', 'DELHI', 'PATNA'),
+('PNR045', 'TKT045', 'AI501', '2024-04-25', '14:30:00', 'MUMBAI', 'HYDERABAD'),
+('PNR046', 'TKT046', 'AI601', '2024-04-26', '16:00:00', 'HYDERABAD', 'CHENNAI'),
+('PNR047', 'TKT047', 'AI701', '2024-04-27', '17:30:00', 'PATNA', 'BANGALORE'),
+('PNR048', 'TKT048', 'AI801', '2024-04-28', '19:00:00', 'BANGALORE', 'PATNA'),
+('PNR049', 'TKT049', 'AI901', '2024-04-29', '20:30:00', 'CHENNAI', 'DELHI'),
+('PNR050', 'TKT050', 'AI1001', '2024-04-30', '22:00:00', 'DELHI', 'HYDERABAD');
+
+- data for payment table
+INSERT INTO payment (pnr_no, ph_no, cheque_no, card_no, paid_amt, pay_date) VALUES
+('PNR001', '9876543210', 'CHQ001', '4111111111111111', '5000', '2024-03-10'),
+('PNR002', '8765432109', 'CHQ002', '4222222222222222', '5000', '2024-03-10'),
+('PNR003', '7654321098', 'CHQ003', '4333333333333333', '4000', '2024-03-11'),
+('PNR004', '6543210987', 'CHQ004', '4444444444444444', '4000', '2024-03-11'),
+('PNR005', '5432109876', 'CHQ005', '4555555555555555', '4500', '2024-03-12'),
+('PNR006', '4321098765', 'CHQ006', '4666666666666666', '4500', '2024-03-12'),
+('PNR007', '3210987654', 'CHQ007', '4777777777777777', '6000', '2024-03-13'),
+('PNR008', '2109876543', 'CHQ008', '4888888888888888', '6000', '2024-03-13'),
+('PNR009', '1098765432', 'CHQ009', '4999999999999999', '5500', '2024-03-14'),
+('PNR010', '9876543211', 'CHQ010', '4000000000000000', '5500', '2024-03-14'),
+('PNR011', '8765432110', 'CHQ011', '4111111111111112', '5500', '2024-03-15'),
+('PNR012', '7654321099', 'CHQ012', '4222222222222223', '5500', '2024-03-15'),
+('PNR013', '6543210988', 'CHQ013', '4333333333333334', '4500', '2024-03-16'),
+('PNR014', '5432109877', 'CHQ014', '4444444444444445', '4500', '2024-03-16'),
+('PNR015', '4321098766', 'CHQ015', '4555555555555556', '5000', '2024-03-17'),
+('PNR016', '3210987655', 'CHQ016', '4666666666666667', '5000', '2024-03-17'),
+('PNR017', '2109876544', 'CHQ017', '4777777777777778', '4000', '2024-03-18'),
+('PNR018', '1098765433', 'CHQ018', '4888888888888889', '4000', '2024-03-18'),
+('PNR019', '9876543212', 'CHQ019', '4999999999999990', '4500', '2024-03-19'),
+('PNR020', '8765432111', 'CHQ020', '4000000000000001', '4500', '2024-03-19');
+
+--data for cancellation table
+INSERT INTO cancellation (pnr_no, cancellaton_no, cancellation_data, fli_code) VALUES
+('PNR001', 'CAN001', '2024-03-11', 'AI101'),
+('PNR002', 'CAN002', '2024-03-11', 'AI102'),
+('PNR003', 'CAN003', '2024-03-12', 'AI201'),
+('PNR004', 'CAN004', '2024-03-12', 'AI202'),
+('PNR005', 'CAN005', '2024-03-13', 'AI301'),
+('PNR006', 'CAN006', '2024-03-13', 'AI302'),
+('PNR007', 'CAN007', '2024-03-14', 'AI401'),
+('PNR008', 'CAN008', '2024-03-14', 'AI402'),
+('PNR009', 'CAN009', '2024-03-15', 'AI501'),
+('PNR010', 'CAN010', '2024-03-15', 'AI502'),
+('PNR011', 'CAN011', '2024-03-16', 'AI601'),
+('PNR012', 'CAN012', '2024-03-16', 'AI602'),
+('PNR013', 'CAN013', '2024-03-17', 'AI701'),
+('PNR014', 'CAN014', '2024-03-17', 'AI702'),
+('PNR015', 'CAN015', '2024-03-18', 'AI801'),
+('PNR016', 'CAN016', '2024-03-18', 'AI802'),
+('PNR017', 'CAN017', '2024-03-19', 'AI901'),
+('PNR018', 'CAN018', '2024-03-19', 'AI902'),
+('PNR019', 'CAN019', '2024-03-20', 'AI1001'),
+('PNR020', 'CAN020', '2024-03-20', 'AI1002');
